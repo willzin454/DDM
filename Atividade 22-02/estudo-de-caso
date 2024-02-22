@@ -1,1 +1,21 @@
+01) - Defina um projeto para você! 
+(Um para cada aluno)
+    a) Ramos de atividades: Barberaria; 
+	Salão de Beleza; Marido de Aluguel; 
+	Compartilhamento de Ferramentas; 
+	Venda de Lanches; Futebol; 
+	Basquete; Volei; Gestão de Estudos; Saúde; 
 
+    b) Escolhendo um ramo defina o escopo. Exemplo: 
+	Anamnese; Registro de resultado de Exames; Avaliação de Jogadores;
+	Formação de times/chaves; Agendamento de horário/serviço; Gestão de pedidos;
+	
+Diário de aula:
+- Nome do aplicativo com a devida descrição do escopo; 
+- Faça o material de estudo da aula (criação projeto, pasta lib, 
+  criação arquivo, método main, execução, variáveis, tipos de dados, 
+  interpolação, boas práticas, variáveis de inferência, 
+  constantes e valor final, entrada de dados, null safery, 
+  conversão de dados, métodos);
+- Exercícios do caso de uso do Professor;
+- Exercícios do seu projeto.
