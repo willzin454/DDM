@@ -1,9 +1,16 @@
 Diário de aula:
 - Nome do aplicativo com a devida descrição do escopo; 
+R: SouthPark, se trata de uma aplicação de gestão de veiculos de multiplos estacionamentos, a aplicação vai informar a quantidade, pode adicionar 
+ou remover-los, anotar datas de entrada e saida de mensalistas do estacionamento (emquanto contrato), 
+
 - Faça o material de estudo da aula (criação projeto, pasta lib, 
   criação arquivo, método main, execução, variáveis, tipos de dados, 
   interpolação, boas práticas, variáveis de inferência, 
   constantes e valor final, entrada de dados, null safery, 
   conversão de dados, métodos);
+R: 
 - Exercícios do caso de uso do Professor;
+R:
+
 - Exercícios do seu projeto.
+R:
