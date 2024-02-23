@@ -90,10 +90,18 @@ void main() {
   * Aplique o que aprendeu no seu projeto.
 
     void main() {
-    String nomeCliente = "Maria";
-    var placa = "ABC-0A23";
-  
-    print("$nomeCliente, placa: $placa");
+      String estacionamento;
+      String nomeCliente;
+      var placa;
+      dynamic CPF;
+      bool cAtivo;
+    
+      nomeCliente = "Maria";
+      placa = "ABC-0A23";
+      CPF = "000.081.005-05";
+      cAtivo = true;
+    
+      print("$nomeCliente, placa: $placa, $CPF, ${cAtivo == true ? "Ativo" : "Inativo"}");
     }
 
 */
