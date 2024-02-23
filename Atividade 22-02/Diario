@@ -1,29 +1,129 @@
 Diário de aula:
 - Nome do aplicativo com a devida descrição do escopo; 
-R: SouthPark, se trata de uma aplicação de gestão de veiculos de multiplos estacionamentos, a aplicação vai informar a quantidade de mensais e carros, pode adicionar 
-ou remover-los, anotar datas de entrada e saida de mensalistas do estacionamento (emquanto contrato), armazenamento de dados pessoais necessarios.
+    SouthPark, se trata de uma aplicação de gestão de veiculos de multiplos estacionamentos, a aplicação vai informar a quantidade de mensais e carros, pode adicionar 
+    ou remover-los, anotar datas de entrada e saida de mensalistas do estacionamento (emquanto contrato), armazenamento de dados pessoais necessarios.
 
 - Faça o material de estudo da aula (criação projeto, pasta lib, 
   criação arquivo, método main, execução, variáveis, tipos de dados, 
   interpolação, boas práticas, variáveis de inferência, 
   constantes e valor final, entrada de dados, null safery, 
   conversão de dados, métodos);
-R: Primeiro é feito um projeto em Flutter, na pasta lib é aonde vai acontecer a maior parte das modificações, o restante é apenas em casos especificos para modificações
-no metodo main vai ser usado apenas para rodar o arquivo e não o projeto inteiro, vamos usar a variaveis comuns "String", "Int", "double" e "bool", as boas praticas de nomes 
-começando com a primeira letra maiuscula e a primeira letra da segunda palavra tambem, e tambem tentar manter uma lingua unificada, ou usar apenas portugues ou apenas inglês,
-o uso de interpolação para o procesamento da variavel para substituições antes da impressão.
+    Primeiro é feito um projeto em Flutter, na pasta lib é aonde vai acontecer a maior parte das modificações, o restante é apenas em casos especificos para modificações
+    no metodo main vai ser usado apenas para rodar o arquivo e não o projeto inteiro, vamos usar a variaveis comuns "String", "Int", "double" e "bool", as boas praticas de nomes 
+    começando com a primeira letra maiuscula e a primeira letra da segunda palavra tambem, e tambem tentar manter uma lingua unificada, ou usar apenas portugues ou apenas inglês,
+    o uso de interpolação para o procesamento da variavel para substituições antes da impressão.
 
-Formas de concatenação:
-    print(nomeAluno + ' ' + sobreNome);
-    print('${nomeAluno} ${sobreNome}');
-    print('$nomeAluno $sobreNome');
-    print('$nomeAluno ${idade >= 18 ? "não precisa" : "precisa"}');
-    print('skandkanskdnnskdnkn'+
-    'saldnksdknsakdnksn'+
-    'sadsadasdasdasdasdd');
+    Formas de concatenação:
+        print(nomeAluno + ' ' + sobreNome);
+        print('${nomeAluno} ${sobreNome}');
+        print('$nomeAluno $sobreNome');
+        print('$nomeAluno ${idade >= 18 ? "não precisa" : "precisa"}');
+        print('skandkanskdnnskdnkn'+
+        'saldnksdknsakdnksn'+
+        'sadsadasdasdasdasdd');
 
 - Exercícios do caso de uso do Professor;
-R:  
 
 - Exercícios do seu projeto.
-R:
+
+/*
+void main() {
+  print('variaveis');
+  String nomeAluno = "William";
+  String sobreNome = "Carvalho";
+  int idade = 21;
+  double peso = 80.0;
+  bool eAprovado = true;
+
+  print(nomeAluno + ' ' + sobreNome);   -- concatenação simples
+  print('${nomeAluno} ${sobreNome}');   -- interpolação simples
+  print('$nomeAluno $sobreNome');       -- interpolação simples
+  print('$nomeAluno ${idade >= 18 ? "não precisa" : "precisa"}'); -- interpolação com processamento
+  print('skandkanskdnnskdnkn'+          -- quebra de linha
+  'saldnksdknsakdnksn'+
+  'sadsadasdasdasdasdd');
+}
+*/
+
+/*
+  * Atividade 01
+  * a) Defina as seguintes variáveis e seus respectivos valores: 
+  * displina, carga horária com casas decimais, professor responsável, 
+  * se a disciplina está ativa e quantidade de alunos. 
+  * b) imprima todos os valores utilizando: i) concatenação, 
+  * ii) interpolação simples e (iii) a interpolação com processamento
+   
+      void main() {
+        String disciplina = "POO";
+        double cargaHoraria = 60.0;
+        String professorResponsavel = "Marcelo T.";
+        bool dAtiva = false;
+
+        print(
+            'Disciplina:${disciplina}, Carga Horaria:${cargaHoraria}hrs, Professor Responsavel:${professorResponsavel}, Aula: ${dAtiva == true ? "Ativa" : "Inativa"}');
+        }
+
+  * Atividade 02
+  * Aplique o que aprendeu no seu projeto.
+
+      void main() {
+      String nomeCliente = "Maria";
+      String placa = "ABC-0A23";
+    
+      print("$nomeCliente, placa: $placa");
+    }
+
+  * Atividade 03
+  * a) Refaça "Atividade 01" utilizando Inferência de Tipo.
+
+  void main() {
+  dynamic disciplina = "POO";
+  const double cargaHoraria = 60.0;
+  var professorResponsavel = "Marcelo T.";
+  final bool dAtiva = false;
+
+  print(
+      'Disciplina:${disciplina}, Carga Horaria:${cargaHoraria}hrs, Professor Responsavel:${professorResponsavel}, Aula: ${dAtiva == true ? "Ativa" : "Inativa"}');
+    }
+
+  * Atividade 04
+  * Aplique o que aprendeu no seu projeto.
+
+    void main() {
+    String nomeCliente = "Maria";
+    var placa = "ABC-0A23";
+  
+    print("$nomeCliente, placa: $placa");
+    }
+
+*/
+
+/*void main() {
+  print("variaveis de inferencia");
+  //sintaxe - motivação
+  var nome =
+      "william"; //usar sempre a variavel declarada String nome = "william";, assim não cria varios tipos de uma mesma variavel
+  //
+
+  print("variaveis dinamicas");
+  //regras - erros - padrão
+  dynamic nomeAluno = "Maria";
+  nomeAluno = 10;
+
+  dynamic registroAcademico =
+      202150154; //dynamic serve para usar de forma mais flexivel podendo usar de forma dinamica int e strings
+  registroAcademico = "16464415454";
+  dynamic id = 11;
+  id = "53669.3652sda";
+
+  print("const final");
+  const int codigo =
+      44; //const é um valor constante que não muda e é definida em tempo de complilação, e quando ja se sabe o valor é inserido
+  final int codigoJogo =
+      100; //e final e um valor que muda em tempo de execução, e vai ser o valor final quando vfor inserido
+  final int soma = codigo + codigoJogo; //so é posivel executar essa linha por causa que a variavel final funciona em tempom de execução.
+  //const int soma = codigo + codigoJogo;   não vai executar por conta que a variavel "const" funciona em  tempo de compilação e a final so vai funcionar depois da execução.
+}
+*/
+
+
