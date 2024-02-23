@@ -11,10 +11,19 @@ ou remover-los, anotar datas de entrada e saida de mensalistas do estacionamento
 R: Primeiro é feito um projeto em Flutter, na pasta lib é aonde vai acontecer a maior parte das modificações, o restante é apenas em casos especificos para modificações
 no metodo main vai ser usado apenas para rodar o arquivo e não o projeto inteiro, vamos usar a variaveis comuns "String", "Int", "double" e "bool", as boas praticas de nomes 
 começando com a primeira letra maiuscula e a primeira letra da segunda palavra tambem, e tambem tentar manter uma lingua unificada, ou usar apenas portugues ou apenas inglês,
-o uso de interpolação para o procesamento da variavel para substituições antes da impressão, 
+o uso de interpolação para o procesamento da variavel para substituições antes da impressão.
+
+Formas de concatenação:
+    print(nomeAluno + ' ' + sobreNome);
+    print('${nomeAluno} ${sobreNome}');
+    print('$nomeAluno $sobreNome');
+    print('$nomeAluno ${idade >= 18 ? "não precisa" : "precisa"}');
+    print('skandkanskdnnskdnkn'+
+    'saldnksdknsakdnksn'+
+    'sadsadasdasdasdasdd');
 
 - Exercícios do caso de uso do Professor;
-R:
+R:  
 
 - Exercícios do seu projeto.
 R:
