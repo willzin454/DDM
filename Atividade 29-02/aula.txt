@@ -4,5 +4,12 @@ Hora de inicio 19:30
 -pub get
 -pub clean
 
-//  var entradaIdade = stdin.readLineSync()!; ! = sem o ponto de interogação 
+//  var entradaIdade = stdin.readLineSync()!; "! = sem o ponto de interogação serve para garantir que não vai ter erro na execução"
 //  var idade = int.parse(entradaIdade);
+
+- Existe vantagem maior em encontrar os erros em tempo de execução e não em compilação, de forma geral é muito mais 
+vantagem tratar os erros antes.
+
+- No dartnão é obrigatorio identificar o tipo de uma função sem retorno, ou seja, void, porem é uma boa pratica colocar.
+
+- 
