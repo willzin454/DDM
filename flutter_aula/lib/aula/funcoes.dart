@@ -73,9 +73,15 @@ import 'dart:io';
 // }
 //  d) Faça 3 exemplos do seu projeto.
 
-
 //flutter pub get
 //fluter pub clean
 
 // Desafio! fazer o exercicio anterior usando funções, funções com retorno, funções com parametro e retorno.
 
+void nomeFuncao() {}
+
+int nomeFuncao2() {
+  return 0;
+}
+
+void funcaoParam(int x, String y) {}

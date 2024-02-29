@@ -4,8 +4,9 @@ Hora de inicio 19:30
 -pub get
 -pub clean
 
-//  var entradaIdade = stdin.readLineSync()!; "! = sem o ponto de interogação serve para garantir que não vai ter erro na execução"
-//  var idade = int.parse(entradaIdade);
+//  var entradaIdade = stdin.readLineSync()!; "! = garante que não va ser nulo. Sem o ponto de interogação serve para garantir que não vai ter erro na execução"
+//  var idade = int.parse(entradaIdade);        "? = se for nulo não executa"
+                                                "??'0' = serve para definir um valor padrão caso seja nulo"
 
 - Existe vantagem maior em encontrar os erros em tempo de execução e não em compilação, de forma geral é muito mais 
 vantagem tratar os erros antes.
