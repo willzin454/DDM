@@ -1,15 +1,51 @@
 import 'dart:io';
 
+//main() {
+//  print('Aula funções\nwi');
+//  var nome = stdin.readLineSync();
+//  print('meu nome é+ $nome');
+//  print('idade');
+//  var entradaIdade = stdin.readLineSync()!;
+//  var idade = int.parse(entradaIdade);
+//var idade = entradaIdade as int; //int.parse
+//  print('meu nome é $nome, a minha idade é $idade');
+//}
+
+//Atividade 01
+//a) Solicite 2 notas de avaliações e calcule a média;
+// main() {
+//   print('Notas: ');
+//   var entradaNota1 = stdin.readLineSync()!;
+//   var nota1 = int.parse(entradaNota1);
+
+//   var entradaNota2 = stdin.readLineSync()!;
+//   var nota2 = int.parse(entradaNota2);
+
+//   var media = (nota1 + nota2) / 2;
+//   print('Sua media foi: $media');
+// }
+
+//b) Refaça o exercício anterior validado se as notas informadas são válidas (de 0 à 10);
 main() {
-  print('aula funções');
-  var nome = stdin.readLineSync();
-  print('meu nome é+ $nome');
-  print('idade');
-  var entradaIdade = stdin.readLineSync()!;
-  var idade = int.parse(entradaIdade);
-  //var idade = entradaIdade as int; //int.parse
-  print('meu nome é $nome, a minha idade é $idade');
+  print('Notas: ');
+  int cont = 0;
+
+  do{
+    var entradaNota1 = stdin.readLineSync()!;
+    var nota1 = int.parse(entradaNota1);
+
+    var entradaNota2 = stdin.readLineSync()!;
+    var nota2 = int.parse(entradaNota2);
+
+    var media = (nota1 + nota2) / 2;
+    print('Sua media foi: $media');
+  }while(cont == 0);
 }
+
+//c) Com a média calculada, verifique se o aluno está aprovado (maior ou igual à 6).
+//d) Faça 3 exemplos do seu projeto.
+
+
 
 
 //flutter pub get

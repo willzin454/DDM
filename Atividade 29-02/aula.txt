@@ -1,0 +1,8 @@
+Hora de inicio 19:30
+
+-Funções
+-pub get
+-pub clean
+
+//  var entradaIdade = stdin.readLineSync()!; ! = sem o ponto de interogação 
+//  var idade = int.parse(entradaIdade);
