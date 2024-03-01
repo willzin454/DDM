@@ -1,16 +1,75 @@
-Hora de inicio 19:30
+Hora de inicio: 19:30
 
 -Funções
 -pub get
 -pub clean
 
 //  var entradaIdade = stdin.readLineSync()!; "! = garante que não va ser nulo. Sem o ponto de interogação serve para garantir que não vai ter erro na execução"
-//  var idade = int.parse(entradaIdade);        "? = se for nulo não executa"
-                                                "??'0' = serve para definir um valor padrão caso seja nulo"
+//  var idade = int.parse(entradaIdade);      "? = se for nulo não executa"
+                                              "??'0' = serve para definir um valor padrão caso seja nulo"
 
 - Existe vantagem maior em encontrar os erros em tempo de execução e não em compilação, de forma geral é muito mais 
 vantagem tratar os erros antes.
 
 - No dartnão é obrigatorio identificar o tipo de uma função sem retorno, ou seja, void, porem é uma boa pratica colocar.
 
-- 
+- O que é "função" se trata de unidade de código que agrupa um conjunto de instruções para realizar uma tarefa específica. Ela possui um nome que a identifica e pode
+ receber parâmetros de entrada, executar operações e retornar um valor1. Possui tres passos sendo elas "entreda", "procesamento" e "saida".
+
+- Sempre separar a tecnologia da regra de negocio. 
+
+Atividade 01    (feito em "funcoes")
+a) Solicite 2 notas de avaliações e calcule a média; 
+b) Refaça o exercício anterior validado se as notas informadas são válidas (de 0 à 10);
+c) Com a média calculada, verifique se o aluno está aprovado (maior ou igual à 6).
+d) Faça 3 exemplos do seu projeto.  (não concluido)
+
+Atividade 02
+a) Em programação o null é um problema? Explique.
+R: Sim, pois em um cenario em que  se é exigido um valor para uma variavel porem não é preenchido, se ele for requerido mais tarde 
+tem chance de dar erro no programa ou ate quebrar a aplicação caso não haja tratamento.
+
+b) O que é null safety? para que serve? Quais são as vantagens e desvantagens?
+R: é uma garantia de que nenhuma referência a objetos terá valores nulos ou vazios, null safety existe para eliminar riscos de
+referencias nulas, uma de suas vantagens é facilitação dda manutenção do codigo e a prevenção de erros, e suas desvantagens são de forma geral mais trabalhosas e desenpenham maior tempo na adição desse metodo.
+
+c) Faça um exemplo do uso incorreto de um dos operadores Null Safety.
+R:  class Pessoa {
+        String? nome;
+    }
+
+    void main() {
+        final pessoa = Pessoa(); 
+        final pessoaNome = pessoa.nome; // pode gerar um erro
+        print('Nome da pessoa: $pessoaNome');
+    }
+
+// se o atrbuto nome estiver definido como null, na linha "final pessoaNome = pessoa.nome;" pode gerar um erro por conta, 
+pois não ouve uma atribuição de valor previa.
+
+d) Em relação ao Null Safety, quais são os operadores existentes? Para que serve cada uma. No contexto do seu projeto, escreva um exemplo do uso correto de cada operador.
+R: 
+! = serve para voce assumir que não vai ser um operador nulo, e pode ser usado no meu projeto para garantir que no cadastro de um cliente suas credencias seja inserido.
+? = serve para que informe que algo pode ser null, e pode ser usado quando no cadastro de um cliente que tenha mais de um carro, preenchendo apenas um carro.
+?? = serve para definir um valor padrão caso seja null, e pode ser usado em meu projeto caso tenha um carro, porem, ainda não possui placa.
+
+
+Atividade 03
+a) Organize todo o código do estudo de caso desenvolvido até o momento em funções;
+
+b) Organize todo o código do seu projeto desenvolvido até o momento em funções;
+
+Atividade 04
+a) Quais são os tipos de parâmetros em dart? Explique as diferenças, vantagens e desvantagens de cada uma.
+R: 
+int     = int é usado para exploração de numeros inteiros, não quebrados. 
+double  = double é o contrario do anterior permitindo usar apenas os numeros quebrados. 
+String  = string é usado para a manipulação de palavras. 
+bool    = bool é uma atribuição de valor duplo podendo ser de forma geral ou False ou True, ou seja, real ou falso, vendade ou falso. 
+var     = 
+
+b) Em relação a cada tipo de parâmetro, faça 3 exemplos do estudo de caso. 
+R: 
+
+c) Em relação a cada tipo de parâmetro, faça 3 exemplos do projeto. 
+R: 
