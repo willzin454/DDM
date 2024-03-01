@@ -37,7 +37,7 @@ import 'dart:io';
 //     var entradaNota2 = stdin.readLineSync()!;
 //     var nota2 = int.parse(entradaNota2);
 
-//     if (nota1 < 0 || nota1 > 10 && nota2 < 0 || nota2 > 10) {
+//     if (nota1 <= 0 || nota1 => 10 && nota2 <= 0 || nota2 => 10) {
 //       print('As notas não estão no padrão entre 0 a 10.');
 //     } else {
 //       var media = (nota1 + nota2) / 2;
@@ -58,12 +58,12 @@ import 'dart:io';
 //     var entradaNota2 = stdin.readLineSync()!;
 //     var nota2 = int.parse(entradaNota2);
 
-//     if (nota1 < 0 || nota1 > 10 && nota2 < 0 || nota2 > 10) {
+//     if (nota1 <= 0 || nota1 => 10 && nota2 <= 0 || nota2 => 10) {
 //       print('As notas não estão no padrão entre 0 a 10.');
 //     } else {
 //       var media = (nota1 + nota2) / 2;
 //       print('Sua media foi: $media');
-//       if (media > 6) {
+//       if (media => 6) {
 //         print('Aprovado');
 //       } else {
 //         print('Reprovado');
@@ -78,10 +78,25 @@ import 'dart:io';
 
 // Desafio! fazer o exercicio anterior usando funções, funções com retorno, funções com parametro e retorno.
 
-void nomeFuncao() {}
+void media() {
+  var entradaNota1 = stdin.readLineSync()!;
+  var nota1 = int.parse(entradaNota1);
 
-int nomeFuncao2() {
-  return 0;
+  var entradaNota2 = stdin.readLineSync()!;
+  var nota2 = int.parse(entradaNota2);
+
+  var media = (nota1 + nota2) / 2;
+  print('Sua media foi: $media');
+}
+
+int nomeFuncao2(nota1, nota2) {
+  int media = (nota1 + nota2) / 2;
+
+  return media;
 }
 
 void funcaoParam(int x, String y) {}
+
+int funcaoParam2(int x, String y) {
+  return 0;
+}
