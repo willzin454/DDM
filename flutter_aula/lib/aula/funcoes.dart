@@ -98,29 +98,29 @@ import 'dart:io';
 
 // void funcaoParam(int x, String y) {}
 
-int funcaoParam2(int x, String y) {
-  return 0;
-}
-
-main() {
-  print("aula");
-  funcao(5, 'dart');
-}
-
-void funcao(int x, String y) {
-  print("variavel x é $x e y é $y");
-  //print('o aluno esta ${ehAprovado(6, 7)}');
-  funcaoParamNomeado(idade: 5, nome: 'Maria');
-  funcaoParamNomeado(nome: 'João', idade: 55);
-  // funcaoParamNomeado(idade: 55);  esta dando erro pois falta parametro
-}
-
-// bool ehAprovado(double nota1, double nota2,
-//     [double mediaAprovacao = 6, int flatasMax = 10]) {
-//   //  [] = usados para caso de parametros opicionais
-//   var media = (nota1 + nota2) / 2;
-//   return (media >= mediaAprovacao);
+// int funcaoParam2(int x, String y) {
+//   return 0;
 // }
+
+// main() {
+//   print("aula");
+//   funcao(5, 'dart');
+// }
+
+// void funcao(int x, String y) {
+//   print("variavel x é $x e y é $y");
+//   //print('o aluno esta ${ehAprovado(6, 7)}');
+//   funcaoParamNomeado(idade: 5, nome: 'Maria');
+//   funcaoParamNomeado(nome: 'João', idade: 55);
+//   // funcaoParamNomeado(idade: 55);  esta dando erro pois falta parametro
+// }
+
+// // bool ehAprovado(double nota1, double nota2,
+// //     [double mediaAprovacao = 6, int flatasMax = 10]) {
+// //   //  [] = usados para caso de parametros opicionais
+// //   var media = (nota1 + nota2) / 2;
+// //   return (media >= mediaAprovacao);
+// // }
 
 bool ehAprovado(
     {required double nota1,
@@ -135,10 +135,15 @@ bool ehAprovado(
   return ehAprovadaFaltas && ehAprovadaNota;
 }
 
-// void funcaoParamNomeado({int idade = 0, String nome = 'william'}){
-//     print('nome: $nome, idade: $idade');
+// // void funcaoParamNomeado({int idade = 0, String nome = 'william'}){
+// //     print('nome: $nome, idade: $idade');
+// // }
+
+// void funcaoParamNomeado({required int idade, required String nome}) {
+//   print('nome: $nome, idade: $idade');
 // }
 
-void funcaoParamNomeado({required int idade, required String nome}) {
-  print('nome: $nome, idade: $idade');
+main(){
+
 }
+
