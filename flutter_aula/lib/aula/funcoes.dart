@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:io';
 
 //main() {
@@ -78,25 +79,66 @@ import 'dart:io';
 
 // Desafio! fazer o exercicio anterior usando funções, funções com retorno, funções com parametro e retorno.
 
-void media() {
-  var entradaNota1 = stdin.readLineSync()!;
-  var nota1 = int.parse(entradaNota1);
+// void media() {
+//   var entradaNota1 = stdin.readLineSync()!;
+//   var nota1 = int.parse(entradaNota1);
 
-  var entradaNota2 = stdin.readLineSync()!;
-  var nota2 = int.parse(entradaNota2);
+//   var entradaNota2 = stdin.readLineSync()!;
+//   var nota2 = int.parse(entradaNota2);
 
-  var media = (nota1 + nota2) / 2;
-  print('Sua media foi: $media');
-}
+//   var media = (nota1 + nota2) / 2;
+//   print('Sua media foi: $media');
+// }
 
-int nomeFuncao2(nota1, nota2) {
-  int media = (nota1 + nota2) / 2;
+// int nomeFuncao2(nota1, nota2) {
+//   int media = (nota1 + nota2) / 2;
 
-  return media;
-}
+//   return media;
+// }
 
-void funcaoParam(int x, String y) {}
+// void funcaoParam(int x, String y) {}
 
 int funcaoParam2(int x, String y) {
   return 0;
+}
+
+main() {
+  print("aula");
+  funcao(5, 'dart');
+}
+
+void funcao(int x, String y) {
+  print("variavel x é $x e y é $y");
+  //print('o aluno esta ${ehAprovado(6, 7)}');
+  funcaoParamNomeado(idade: 5, nome: 'Maria');
+  funcaoParamNomeado(nome: 'João', idade: 55);
+  // funcaoParamNomeado(idade: 55);  esta dando erro pois falta parametro
+}
+
+// bool ehAprovado(double nota1, double nota2,
+//     [double mediaAprovacao = 6, int flatasMax = 10]) {
+//   //  [] = usados para caso de parametros opicionais
+//   var media = (nota1 + nota2) / 2;
+//   return (media >= mediaAprovacao);
+// }
+
+bool ehAprovado(
+    {required double nota1,
+    required double nota2,
+    required int faltas,
+    double mediaAprovacao = 6,
+    int flatasMax = 10}) {
+  //  [] = usados para caso de parametros opicionais
+  var media = (nota1 + nota2) / 2;
+  var ehAprovadaNota = (media >= mediaAprovacao);
+  var ehAprovadaFaltas = faltas <= flatasMax;
+  return ehAprovadaFaltas && ehAprovadaNota;
+}
+
+// void funcaoParamNomeado({int idade = 0, String nome = 'william'}){
+//     print('nome: $nome, idade: $idade');
+// }
+
+void funcaoParamNomeado({required int idade, required String nome}) {
+  print('nome: $nome, idade: $idade');
 }

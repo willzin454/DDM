@@ -1,0 +1,34 @@
+                                            - Tipos de Parâmetros; 
+
+- posicionais; 
+		- regras-posição;  pq é obrigatório? vantagens/desvantagens; tipos nulos; tipo nulo não é opcional; nulo deve ser tratado;
+        Atividade 01 - Parâmetros Posicionais:
+            - Escreve 3 exemplos do seu projeto contendo todo conteúdo passado;
+                void verificacao(bool x, bool y) {
+                    print('Esta ${pagamento(true, true)}');
+                }
+
+                bool pagamento([bool mes1 = true, bool mes2 = true]) {
+                    if (mes1 == true || mes2 == true) {
+                        print('em dia');
+                    } else if (mes1 == true || mes2 == false && mes1 == false || mes2 == true) {
+                        print('um mes atrasado');
+                    } else {
+                        print('atrasado');
+                    }
+                }
+	- nomeados, 
+		- sintaxe; pq é opcional? nomeados obrigatórios; nomeados e posicionais
+		>>>atividade 03
+	- parâmetro do tipo função
+		- sintaxe; exemplo contextualizado; execução;
+		>>>atividade 04
+	- funções anônimas
+		- sintaxe; exemplo contextualizado; execução;
+		>>quando usar ";" e ","<<
+		>>>atividade 05
+	- testes unitários e boas práticas;
+		>>>atividade 06 - aplicar testes para cada exercício
+
+posicional: so importa a posição dele, porem não é possivel a distinção.
+nomeados: não importa a posição popr conta do trabalho dele ser referente apenas ao nome do parametro, não nomeados tambem não é obrigatorio.
