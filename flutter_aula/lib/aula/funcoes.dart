@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 //main() {
@@ -107,6 +106,9 @@ main() {
   //funcao(5, 'dart');
   print(
       '${ehAprovado(nota1: 10, nota2: 6, calcularMedia: calcularMediaPercentual, faltas: 10)}');
+  print(
+      '${ehAprovado(nota1: 10, nota2: 6, calcularMedia: (double n1, double n2) => (n1 + n2) / 2, 
+        faltas: 10)}');
 }
 
 // void funcao(int x, String y) {
@@ -147,6 +149,7 @@ bool ehAprovado(
 // }
 
 double calcularMediaPercentual(double nota1, double nota2) {
+  //funções nomeadas servem para usar mais de uma vez
   double media = (nota1 * 0.6) + (nota2 * 0.4);
   return media;
 }

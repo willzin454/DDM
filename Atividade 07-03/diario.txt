@@ -1,11 +1,12 @@
-                                            - Tipos de Parâmetros; 
+                                            Tipos de Parâmetros; 
 
     - POSICIONAIS; 
         - regras-posição;  pq é obrigatório? vantagens/desvantagens; tipos nulos; tipo nulo não é opcional; nulo deve ser tratado;
-        R:
+        R: é obrigatorio pois se não quebra a ordem de parametros e causa erro, vantagem = padronização é quisito vantajoso
+        por organização, desvantagem = se torna limitado na criação.
 
         - valor padrão nulo e informado; regras básicas; quem é quem?
-        R:
+        R: 
 
         Atividade 01 - Parâmetros Posicionais:
             ex1:
@@ -23,8 +24,6 @@
                     }
                 }
             ---------------------------------------------------------------------------------------------------------------
-            ex2:
-
 
 	- NOMEADOS;
 		- sintaxe; pq é opcional? nomeados obrigatórios; nomeados e posicionais	
@@ -56,3 +55,6 @@
 
 posicional: so importa a posição dele, porem não é possivel a distinção.
 nomeados: não importa a posição por conta do trabalho dele ser referente apenas ao nome do parametro, não nomeados tambem não é obrigatorio.
+
+"," para semparar parametro.
+";" para finalisar um comando.
