@@ -8,7 +8,6 @@
         R:
 
         Atividade 01 - Parâmetros Posicionais:
-            - Escreve 3 exemplos do seu projeto contendo todo conteúdo passado;
             ex1:
                 void verificacao(bool x, bool y) {
                     print('Esta ${pagamento(true, true)}');
@@ -32,7 +31,8 @@
         R: 
 
         Atividade 02 - 
-        
+            ex1:
+
 	- PARAMETRO DO TIPO FUNÇÃO;
 		- sintaxe; exemplo contextualizado; execução;
         R:

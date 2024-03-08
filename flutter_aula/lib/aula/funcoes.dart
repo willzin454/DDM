@@ -1,4 +1,4 @@
-import 'dart:html';
+
 import 'dart:io';
 
 //main() {
@@ -102,10 +102,12 @@ import 'dart:io';
 //   return 0;
 // }
 
-// main() {
-//   print("aula");
-//   funcao(5, 'dart');
-// }
+main() {
+  print("aula");
+  //funcao(5, 'dart');
+  print(
+      '${ehAprovado(nota1: 10, nota2: 6, calcularMedia: calcularMediaPercentual, faltas: 10)}');
+}
 
 // void funcao(int x, String y) {
 //   print("variavel x é $x e y é $y");
@@ -125,11 +127,12 @@ import 'dart:io';
 bool ehAprovado(
     {required double nota1,
     required double nota2,
+    required Function(double, double) calcularMedia,
     required int faltas,
     double mediaAprovacao = 6,
     int flatasMax = 10}) {
-  //  [] = usados para caso de parametros opicionais
-  var media = (nota1 + nota2) / 2;
+  //[] = usados para caso de parametros opicionais
+  var media = calcularMedia(nota1, nota2);
   var ehAprovadaNota = (media >= mediaAprovacao);
   var ehAprovadaFaltas = faltas <= flatasMax;
   return ehAprovadaFaltas && ehAprovadaNota;
@@ -143,7 +146,18 @@ bool ehAprovado(
 //   print('nome: $nome, idade: $idade');
 // }
 
-main(){
-
+double calcularMediaPercentual(double nota1, double nota2) {
+  double media = (nota1 * 0.6) + (nota2 * 0.4);
+  return media;
 }
 
+int sintaxeParametroFuncao(int x, int y, Function f) {
+  //tem que receber uma função equivalente ao numero de parametros, que tenha uma a função é variavel
+  if (x > 10) {
+    x = 0;
+  }
+  if (y > 5) {
+    y = 5;
+  }
+  return f(x, y, f);
+}
