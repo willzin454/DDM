@@ -1,0 +1,15 @@
+Diário de Aula
+- Classes e objetos: 
+	- sintaxe (adaptação, recomendado, com e sem referência);
+	- construtor (conceitos básicos; método/função?; parâmetros posicionais, valor padrão, nomeados, nomeados obrigatórios); 
+	- atributos: sintaxe; uso do this; modificador de acesso; getters/setters - recomendação;
+	- métodos: sintaxe; parâmetros;
+	- associação: sintaxe; atribuição atributo/construtor; atribuição parâmetro posicional/nomeado; parâmetro nomeado com e sem referência;
+	- herança;
+	- classes abstratas/modelo;
+
+Dart so existe duas assinatura de classes.
+
+  MinhaClasse mc = new MinhaClasse();   - tem referencia
+  var mc2 = MinhaClasse();              - tem referencia
+  MinhaClasse();                        - não tem referencia
