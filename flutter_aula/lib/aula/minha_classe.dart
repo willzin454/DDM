@@ -11,7 +11,13 @@
 class MinhaClasse {
   int x = 0;
   int y = 0;
+  int _z = 0; // "_" = usado para identificar como privado.
+
+  int get z => _z;                  // geters e seters em dart. eron fronction quando so tem uma linha de codigo.
+  set z(int valor) => _z = valor;
+
   MinhaClasse({required this.x, required this.y}) {
+    //{} = parametro nomeado, classe main apresenta os atributos da classe referenciando "x = *, y = *"
     print('x é ${this.x} y é ${this.y}');
   }
 }

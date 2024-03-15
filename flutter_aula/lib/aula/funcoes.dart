@@ -165,10 +165,11 @@
 //   return f(x, y, f);
 // }
 import 'minha_classe.dart';
+import 'sua_classe.dart';
 
 void main(List<String> args) {
-  MinhaClasse mc = new MinhaClasse(x:1, y:5);
-  var mc2 = MinhaClasse(x:2, y:8);
-  MinhaClasse(x:3, y:10);
+  // MinhaClasse mc = new MinhaClasse(x:1, y:5);
+  // var mc2 = MinhaClasse(x:2, y:8);
+  // MinhaClasse(x:3, y:10);
+  Cliente cliente = new Cliente("12:30");
 }
-
