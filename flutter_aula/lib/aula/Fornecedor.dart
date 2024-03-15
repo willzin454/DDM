@@ -8,7 +8,7 @@ class Fornecedor {
     Estado estado;
     String? moradia;
 
-    Fornecedor(
+    Fornecedor       (
       {required this.id,
       required this.cidade,
       required this.trabalho,

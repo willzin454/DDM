@@ -191,19 +191,17 @@ void main(List<String> args) {
     estado: Estado(id: 2, nome: 'Mato Grosso', sigla: 'MT'),
   ); // "," np final para separar parametro e não comando.
 
-  var venda = Venda(id: 2,
-   cliente: 
-  Cliente(id: 1,
-   nome: 'Maria',
-    moradia: 
-  Cidade(id: 10,
-   nome: 'Maringa',
-    estado: 
-  Estado(id: 1,
-   nome: 'Paraná',
-    sigla: 'PR')), trabalho: 'qualquerum', estado: Estado(id: 1, nome: 'Parana', sigla: 'PR')),
-     fornecedor: 
-  Fornecedor(id: 10, cidade: 
-  Cidade(id: 2, nome: 'Maringa', estado: 
-  Estado(id: 2, nome: 'Paraná', sigla: 'PR')), trabalho: 'Sei la', estado: Estado(id: 1, nome: 'Parana', sigla: 'PR'), moradia: 'moradas'));
+  var estado = ;
+  var cidade = Cidade(id: 2, nome: 'Maringa', estado: estado);
+  var fornecedor = Fornecedor(id: 10, cidade: cidade, estado: estado,moradia: cidade, trabalho: cidade);
+
+  var venda = Venda(id: 2, 
+                  cliente: Cliente(id: 1, nome: 'Maria',
+                                  cidade: Cidade(id: 10, nome: 'Maringa',
+                                                estado: Estado(id: 1, nome: 'Paraná', sigla: 'PR')), trabalho: 'qualquerum',estado: 
+                                                                                                                                  Estado(id: 1, nome: 'Parana', sigla: 'PR'),
+          fornecedor: fornecedor,
+          trabalho: 'Sei la',
+          estado: Estado(id: 1, nome: 'Parana', sigla: 'PR'),
+          moradia: 'moradas'));
 }
