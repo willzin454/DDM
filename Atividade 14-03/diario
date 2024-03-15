@@ -13,3 +13,5 @@ Dart so existe duas assinatura de classes.
   MinhaClasse mc = new MinhaClasse();   - tem referencia
   var mc2 = MinhaClasse();              - tem referencia
   MinhaClasse();                        - não tem referencia
+
+quando trabalha com objetos, é trabalhado com os objetos e não o valor.

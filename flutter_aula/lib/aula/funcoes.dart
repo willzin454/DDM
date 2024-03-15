@@ -164,12 +164,46 @@
 //   }
 //   return f(x, y, f);
 // }
-import 'minha_classe.dart';
-import 'sua_classe.dart';
+// import 'minha_classe.dart';
+// import 'sua_classe.dart';
+
+// void main(List<String> args) {
+//   // MinhaClasse mc = new MinhaClasse(x:1, y:5);
+//   // var mc2 = MinhaClasse(x:2, y:8);
+//   // MinhaClasse(x:3, y:10);
+//   Cliente cliente = new Cliente("12:30");
+// }
+
+import 'Cidade.dart';
+import 'Estado.dart';
+import 'Cliente.dart';
+import 'Fornecedor.dart';
+import 'Venda.dart';
 
 void main(List<String> args) {
-  // MinhaClasse mc = new MinhaClasse(x:1, y:5);
-  // var mc2 = MinhaClasse(x:2, y:8);
-  // MinhaClasse(x:3, y:10);
-  Cliente cliente = new Cliente("12:30");
+  var estado = Estado(id: 1, nome: 'Paraná', sigla: 'PR');
+
+  var cidade = Cidade(id: 1, nome: 'Paranavaí', estado: estado);
+
+  var cidade2 = Cidade(
+    id: 2,
+    nome: 'Navirai',
+    estado: Estado(id: 2, nome: 'Mato Grosso', sigla: 'MT'),
+  ); // "," np final para separar parametro e não comando.
+
+  var venda = Venda(id: 2,
+   cliente: 
+  Cliente(id: 1,
+   nome: 'Maria',
+    moradia: 
+  Cidade(id: 10,
+   nome: 'Maringa',
+    estado: 
+  Estado(id: 1,
+   nome: 'Paraná',
+    sigla: 'PR')), trabalho: 'qualquerum', estado: Estado(id: 1, nome: 'Parana', sigla: 'PR')),
+     fornecedor: 
+  Fornecedor(id: 10, cidade: 
+  Cidade(id: 2, nome: 'Maringa', estado: 
+  Estado(id: 2, nome: 'Paraná', sigla: 'PR')), trabalho: 'Sei la', estado: Estado(id: 1, nome: 'Parana', sigla: 'PR'), moradia: 'moradas'));
 }

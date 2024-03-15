@@ -20,4 +20,17 @@ class MinhaClasse {
     //{} = parametro nomeado, classe main apresenta os atributos da classe referenciando "x = *, y = *"
     print('x é ${this.x} y é ${this.y}');
   }
+
+  void funcao(int x, int y){
+    //comandos....
+  }
+
 }
+
+// Criar as seguintes classes: 
+//   >> Todos com parâmetros nomeados no construtor
+//   Estado{id,nome,sigla}
+//   Cidade{id,nome,Estado}
+//   Cliente{id,nome,Cidade -trabalho, Cidade -moradia}
+//   Fornecedor{id,nome,Cidade -trabalho, Cidade -moradia}
+//   Venda{id, Cliente, Fornecedor, Função - cálculo comissão}
