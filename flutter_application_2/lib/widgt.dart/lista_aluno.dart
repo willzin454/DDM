@@ -4,7 +4,11 @@ class ListaAluno extends StatelessWidget {
   const ListaAluno({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const Text("Lista Aluno",
-        style: TextStyle(color: Colors.black, decoration: TextDecoration.none));
+    // return Scaffold(
+    //   appBar: AppBar(title: Text("Lista de Aluno")),
+    //   body: const Text("Lista de Aluno"),
+    // );
+    return ElevatedButton(
+        onPressed: () => Navigator.pop(context), child: Text("Voltar"));
   }
 }

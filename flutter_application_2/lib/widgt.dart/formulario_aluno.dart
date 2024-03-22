@@ -5,7 +5,9 @@ class FormularioAluno extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Form Aluno",
-        style: TextStyle(color: Colors.black, decoration: TextDecoration.none));
+    return Scaffold(
+      appBar: AppBar(title: Text("Form do Aluno")),
+      body: const Text("Form do Aluno"),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/rota.dart';
 
 class Principal extends StatelessWidget {
   @override
@@ -13,23 +14,36 @@ class Principal extends StatelessWidget {
           ElevatedButton(
             child: Text("Form Aluno"),
             onPressed: () {
-              print("Form Aluno");
+              Navigator.pushNamed(context, Rota.FormAluno);
             },
           ),
           ElevatedButton(
             child: Text("Lista Aluno"),
             onPressed: () {
-              print("Lista Aluno");
+              Navigator.pushNamed(context, Rota.listaAluno);
             },
           ),
-          ElevatedButton(
-            child: Text("Detalhes do Aluno"),
-            onPressed: () {
-              print("Detalhes do Aluno");
-            },
-          ),
+          // ElevatedButton(
+          //   child: Text("Detalhes Aluno"),
+          //   onPressed: () {
+          //     Navigator.pushNamed(context, Rota.DetalhesAluno);
+          //   },
+          // ),
+          criarBotao(
+              titulo: "Detalhes Aluno",
+              rota: Rota.DetalhesAluno,
+              context: context)
         ], //children é uma lista de widgets...
       ),
     );
+  }
+
+  Widget criarBotao(
+      {required titulo, required rota, required BuildContext context}) {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.pushNamed(context, rota);
+        },
+        child: Text(titulo));
   }
 }
