@@ -182,7 +182,6 @@ import 'Venda.dart';
 
 void main(List<String> args) {
   var estado = Estado(id: 1, nome: 'Paraná', sigla: 'PR');
-
   var cidade = Cidade(id: 1, nome: 'Paranavaí', estado: estado);
 
   var cidade2 = Cidade(
@@ -191,17 +190,24 @@ void main(List<String> args) {
     estado: Estado(id: 2, nome: 'Mato Grosso', sigla: 'MT'),
   ); // "," np final para separar parametro e não comando.
 
-  var estado = ;
-  var cidade = Cidade(id: 2, nome: 'Maringa', estado: estado);
-  var fornecedor = Fornecedor(id: 10, cidade: cidade, estado: estado,moradia: cidade, trabalho: cidade);
-
-  var venda = Venda(id: 2, 
-                  cliente: Cliente(id: 1, nome: 'Maria',
-                                  cidade: Cidade(id: 10, nome: 'Maringa',
-                                                estado: Estado(id: 1, nome: 'Paraná', sigla: 'PR')), trabalho: 'qualquerum',estado: 
-                                                                                                                                  Estado(id: 1, nome: 'Parana', sigla: 'PR'),
-          fornecedor: fornecedor,
-          trabalho: 'Sei la',
-          estado: Estado(id: 1, nome: 'Parana', sigla: 'PR'),
-          moradia: 'moradas'));
+  var cidade1 = Cidade(id: 2, nome: 'Maringa', estado: estado);
+  var fornecedor = Fornecedor(
+      id: 11,
+      cidade: Cidade(
+          id: 1,
+          nome: "Paranavai",
+          estado: Estado(id: 5, nome: "parana", sigla: "PR")),
+      trabalho: "dev",
+      estado: Estado(id: 9, nome: "Parana", sigla: "PR"),
+      moradia: "apartamento");
 }
+//   var venda = Venda(id: 2, 
+//                   cliente: Cliente(id: 1, nome: 'Maria',
+//                                   cidade: Cidade(id: 10, nome: 'Maringa',
+//                                                 estado: Estado(id: 1, nome: 'Paraná', sigla: 'PR')), trabalho: 'qualquerum',estado: 
+//                                                                                                                                   Estado(id: 1, nome: 'Parana', sigla: 'PR'),
+//           fornecedor: fornecedor,
+//           trabalho: 'Sei la',
+//           estado: Estado(id: 1, nome: 'Parana', sigla: 'PR'),
+//           moradia: 'moradas'));
+// 
