@@ -1,0 +1,39 @@
+Para realizar uma pesquisa sobre Levantamento de Requisitos, é recomendável utilizar fontes acadêmicas e profissionais, como:
+
+    Artigos Científicos: Oferecem informações detalhadas e baseadas em pesquisas rigorosas.
+    Livros e Manuais: Fornecem uma visão abrangente e consolidada sobre o tema.
+    Normas e Padrões: Como a ISO/IEC/IEEE 29148, que especifica processos e práticas para o levantamento de requisitos.
+    Sites e Blogs Especializados: Fornecem insights práticos e atualizados de profissionais da área.
+    Utilizar essas fontes garante uma base sólida e confiável para a pesquisa, combinando teoria e prática.
+
+Seguir uma metodologia estruturada é essencial para o sucesso do levantamento de requisitos. Improvisar pode levar a lacunas, ambiguidades e requisitos mal definidos. Algumas metodologias recomendadas incluem:
+
+    Waterfall (Cascata): Tradicional, com etapas sequenciais bem definidas.
+    Agile: Foco na flexibilidade e na entrega incremental, muito utilizada em desenvolvimento de software moderno.
+    Scrum: Framework ágil que foca em entregas rápidas e iterativas.
+    Kanban: Método visual para gerenciar trabalho conforme ele se move através de um processo.
+    Cada metodologia tem suas vantagens e desvantagens, sendo a escolha dependente do contexto do projeto.
+
+Principais riscos:
+
+    Requisitos Ambíguos ou Incompletos: Pode levar a interpretações errôneas.
+    Mudanças de Requisitos: Mudanças frequentes podem desestabilizar o projeto.
+    Falta de Envolvimento dos Stakeholders: Pode resultar em requisitos que não atendem às necessidades reais.
+    Comunicação Ineficiente: Pode levar a mal-entendidos e retrabalho.
+
+Ações de mitigação:
+
+    Documentação Clara e Detalhada: Utilizar linguagem clara e evitar ambiguidades.
+    Gestão de Mudanças: Implementar um processo de controle de mudanças de requisitos.
+    Envolvimento Contínuo dos Stakeholders: Manter uma comunicação constante e envolvimento ativo.
+    Ferramentas de Colaboração: Utilizar ferramentas que facilitem a comunicação e o rastreamento de requisitos.
+
+Validação de Requisitos: Processo de assegurar que os requisitos definidos atendem às necessidades e expectativas dos stakeholders. Serve para garantir que o produto final será útil e aceitável.
+Verificação de Requisitos: Processo de assegurar que os requisitos foram definidos corretamente e são consistentes e completos. Serve para garantir a qualidade e a precisão dos requisitos.
+
+Como realizar:
+
+    Revisões: Revisões periódicas com os stakeholders para validar os requisitos.
+    Prototipação: Criação de protótipos para verificar se os requisitos foram corretamente compreendidos.
+    Teste de Requisitos: Testes para garantir que os requisitos são testáveis e verificáveis.
+    Modelagem: Utilização de diagramas e modelos para verificar a consistência e completude dos requisitos.
