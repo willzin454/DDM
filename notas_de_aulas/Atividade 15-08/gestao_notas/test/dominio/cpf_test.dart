@@ -20,12 +20,10 @@ void main() {
         expect(() => CPF('076.010.469-744').eOnzeNumeros(), throwsException);
       });
       test('CPF - teste de numeros diferentes', () {
-        expect(
-            () => CPF('012.345.678-99').eNumeroDiferentes(), returnsNormally);
+        expect(() => CPF('012.345.678-99').eNumeroDiferentes(), true);
       });
       test('CPF - teste de numeros iguais', () {
-        expect(
-            () => CPF('076.010.469-74').eNumeroDiferentes(), throwsException);
+        expect(() => CPF('111.111.111-11').eNumeroDiferentes(), false);
       });
     });
   });

@@ -25,16 +25,40 @@ class CPF {
   }
 
   bool eNumeroDiferentes() {
-    numerosCPF = <int>[];
-    for (var e in numerosCPF) {
-      int numero = numerosCPF[e];
-      if (numero == numerosCPF[e + 1])
-        throw Exception('Numeros não são diferentes');
+    var diferente = false;
+    for (var i = 0; i < 9; i++) {
+      if (numerosCPF[0] != numerosCPF[i + 1]) {
+        diferente = true;
+        break;
+      }
     }
-    return false;
+    if (!diferente) throw Exception("CPF não pode ter todos os numeros iguais");
+    return diferente;
   }
 
-  bool eDigitosCorretos() {}
+  // bool calcularDigito() {
+  //   late var total;
+  //   late var total2;
+  //   for (var i = 0; i < 9; i++) {
+  //     for (var j = 0; j < 10; i++) {
+  //       total += numerosCPF[i] * j + 1;
+  //     }
+  //     total2 = (total - numerosCPF[0]) + numerosCPF[9];
+  //   }
+  //   total = total % numerosCPF[10];
+  //   if (numerosCPF[10] != total) throw Exception('O CPF esta incorreto');
+  //   return false;
+  // }
+
+  int calcularDigito(int indice) {
+    var soma = 0;
+    for (var peso = 9; peso > -1; peso--, indice--) {
+      soma += numerosCPF[indice] * peso;
+    }
+    var digito = soma % 11;
+    if (digito == 10) digito = 0;
+    return digito;
+  }
 
   // bool eUnico() {}
 }
