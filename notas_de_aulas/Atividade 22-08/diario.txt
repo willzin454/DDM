@@ -1,0 +1,32 @@
+ - Criação de uma interface DAO para fazer inversão de dependencias.
+ - DTO é uma classe de Data Transfer Object (DTO) que encapsula dados relacionados ao professor, sendo
+util na manipulação de informações no sistema.
+----------------------------------------------------------------------------------------------------------------------
+	Professor({required this.dto, required this.dao}) {
+	  status = dto.status;
+	  validador.CPF(CPF);
+	}
+
+	eNomeNaoVazio() {
+	  if (nome.isEmpty) throw Exception('Nome não pode ser vazio');
+	}
+
+	DTOProfessor salvar(DTOProfessor dto) {
+	  eNomeNaoVazio();
+	  return dao.salvar(dto);
+	}
+
+Construtor //O construtor inicializa a classe Professor e recebe dto e dao como parâmetros obrigatórios (required).
+
+status = dto.status //Inicializa a variável status com o valor da propriedade status do objeto dto.
+
+validador.CPF(CPF) //Chama a função CPF do pacote validador para validar o CPF.
+
+eNomeNaoVazio() //Método que verifica se o nome está vazio e lança uma exceção se for o caso.
+
+salvar(DTOProfessor dto) //Método que salva um DTOProfessor usando o método salvar da interface IDAOProfessor. Antes de 
+salvar, chama eNomeNaoVazio() para garantir que o nome não está vazio.
+----------------------------------------------------------------------------------------------------------------------
+ - A inversão de dependência ajuda a desagrupar componentes do sistema, facilitando a divisão do trabalho entre equipes ou partes do projeto.
+ - A independência da divisão de trabalho permite que equipes trabalhem em diferentes partes do sistema sem acoplamento direto, facilitando a colaboração.
+ - O foco no domínio ajuda no desenvolvimento da logica de negocios e testa de forma isolada das implementações técnicas, melhorando a manutenção.
