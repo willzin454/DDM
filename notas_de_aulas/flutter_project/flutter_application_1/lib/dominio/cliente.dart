@@ -12,14 +12,12 @@ class Cliente {
     this.CPF = dto.CPF;
     this.email = dto.email;
 
-    // Validações usando métodos internos
     eNomeVazio();
     eCpfVazio();
     eEmailVazio();
   }
 
   void salvar() {
-    // Use o DAO para salvar o DTO
     dao.salvar(DTOCliente(nome, CPF, email));
   }
 
