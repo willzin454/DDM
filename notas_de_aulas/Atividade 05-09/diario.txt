@@ -1,0 +1,37 @@
+Programação assíncrona
+ - Deixa o código mais rápido e fácil de ler com async e await. Útil 
+em operações que demoram, como chamadas de API.
+
+Arquitetura de banco de dados (Local e Servidor)
+ - Local é rápido e funciona offline, útil pra apps que não precisam de conexão constante. Servidor 
+é bom pra grandes volumes e muitos usuários.
+
+Conexão com banco de dados
+ - Uma conexão melhora desempenho e reduz custos. Boa pra manter 
+o banco ágil e com menos consumo de recursos.
+
+SQLite
+ - Útil pra armazenar dados localmente em apps pequenos e médios.
+
+Pub.dev
+ - Define quais pacotes seu projeto usa. Útil pra instalar pacotes e manter o código atualizado.
+
+Sqflite
+ - Usada no Flutter pra gerenciar bancos SQLite, útil pra controlar o 
+ciclo de vida do banco. Ajuda a abrir, fechar e deletar bancos.
+
+Path
+ - Ajuda a manipular caminhos de arquivos, útil pra armazenar dados em 
+bancos locais ou acessar arquivos no sistema.
+
+DAO
+ - Separa as operações de banco do código principal, útil pra organizar e manter o 
+código limpo. Facilita na hora de fazer manutenção.
+
+Testes unitários
+ - Valida pequenas partes do código, útil pra garantir que cada parte funcione como 
+esperado. Ajudam a evitar erros antes de chegar em produção.
+
+SqfliteFfiInit
+ - Deixa usar SQLite no desktop com sqflite, útil pra testes ou desenvolvimento em desktop.
+
