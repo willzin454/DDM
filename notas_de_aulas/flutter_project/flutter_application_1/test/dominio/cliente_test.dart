@@ -1,7 +1,7 @@
-import 'package:flutter_application_1/dominio/cliente.dart';
-import 'package:flutter_application_1/dominio/inteface/i_dao_cliente.dart';
+import 'package:flutter_application_1/app/dominio/cliente.dart';
+import 'package:flutter_application_1/app/dominio/inteface/i_dao_cliente.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_application_1/dominio/dto/dto_cliente.dart';
+import 'package:flutter_application_1/app/dominio/dto/dto_cliente.dart';
 
 void main() {
   group("Cliente", () {
