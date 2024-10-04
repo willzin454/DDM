@@ -1,35 +1,30 @@
 import 'package:flutter_application_1/app/dominio/dto/dto_cliente.dart';
 import 'package:flutter_application_1/app/dominio/inteface/i_dao_cliente.dart';
-import 'package:flutter_application_1/app/banco/sqlite/conexao.dart'; // Ajuste para seu caminho correto
-import 'package:sqlite/sqlite.dart';
+import 'package:flutter_application_1/app/banco/sqlite/conexao.dart'; 
+import 'package:sqflite/sqflite.dart';
 
 class DAOCliente implements IDAOCliente {
   late Database _db;
 
-  // SQL para inserir um novo cliente
   final sqlInserir = '''
     INSERT INTO cliente (nome, descricao, CPF, url_avatar, status)
     VALUES (?,?,?,?,?)
   ''';
 
-  // SQL para alterar um cliente existente
   final sqlAlterar = '''
     UPDATE cliente SET nome=?, descricao=?, CPF=?, url_avatar=?, status=?
     WHERE id = ?
   ''';
 
-  // SQL para alterar o status do cliente (inativar)
   final sqlAlterarStatus = '''
     UPDATE cliente SET status='I'
     WHERE id = ?
   ''';
 
-  // SQL para consultar um cliente por ID
   final sqlConsultarPorId = '''
     SELECT * FROM cliente WHERE id = ?;
   ''';
 
-  // SQL para consultar todos os clientes
   final sqlConsultar = '''
     SELECT * FROM cliente;
   ''';
@@ -39,7 +34,7 @@ class DAOCliente implements IDAOCliente {
     _db = await Conexao.iniciar();
     int id = await _db.rawInsert(sqlInserir,
         [dto.nome, dto.descricao, dto.cpf, dto.urlAvatar, dto.status]);
-    dto.id = id; // Define o ID do cliente após o salvamento
+    dto.id = id;
     return dto;
   }
 
