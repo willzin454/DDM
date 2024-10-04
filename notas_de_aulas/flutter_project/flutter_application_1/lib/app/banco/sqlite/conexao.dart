@@ -18,6 +18,7 @@ class Conexao {
     return _db;
   }
 
+  // Método para fechar o banco de dados (opcional)
   static Future<void> fechar() async {
     if (_db != null) {
       await _db.close();
