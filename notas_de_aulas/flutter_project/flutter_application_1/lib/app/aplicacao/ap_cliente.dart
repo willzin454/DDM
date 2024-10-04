@@ -21,12 +21,11 @@ class APCliente {
   }
 
   Future<bool> excluir(dynamic id) async {
-    // Chama o método alterarStatus para inativar o cliente
     await dominio.excluir(id);
     return true;
   }
 
   Future<List<DTOCliente>> consultar() async {
-    return await dominio.consultar(); // Corrigido de consutlar para consultar
+    return await dominio.consultar();
   }
 }

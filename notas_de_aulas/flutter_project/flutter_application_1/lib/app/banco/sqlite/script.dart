@@ -1,31 +1,27 @@
-const criarTabelas = 
-[
+const criarTabelas = [
   '''
-    CREATE TABLE professor(
-      id INTEGER NOT NULL PRIMARY KEY
-      ,nome VARCHAR(200) NOT NULL
-      ,descricao VARCHAR(200) NULL
-      ,CPF CHAR(14) UNIQUE
-      ,url_avatar VARCHAR(300) NULL
-      ,status CHAR(1)
+    CREATE TABLE cliente(
+      id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+      nome VARCHAR(200) NOT NULL,
+      descricao VARCHAR(200) NULL,
+      CPF CHAR(14) UNIQUE,
+      url_avatar VARCHAR(300) NULL,
+      status CHAR(1) NOT NULL DEFAULT 'A'
     )
   '''
 ];
 
-const insercoes = 
-[
+const insercoes = [
   '''
-    INSERT INTO professor (nome, descricao, CPF, url_avatar, status)
-    VALUES ('Joaquim Silva', 'GEOGRAFIA', '174.884.480-65','https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366_1280.png', 'A')
+    INSERT INTO cliente (nome, descricao, CPF, url_avatar, status)
+    VALUES ('William Carvalho', 'Desenvolvedor Flutter', '123.456.789-10', 'https://example.com/avatar1.png', 'A')
+  ''',
   '''
-  ,'''
-    INSERT INTO professor (nome,descricao,  CPF, url_avatar, status)
-    VALUES ('Marta Silva', 'HISTÓRIA', '821.107.140-18','https://cdn.pixabay.com/photo/2021/05/10/08/00/woman-6242836_1280.png', 'A')
+    INSERT INTO cliente (nome, descricao, CPF, url_avatar, status)
+    VALUES ('Maria Santos', 'Designer Gráfico', '987.654.321-00', 'https://example.com/avatar2.png', 'A')
+  ''',
   '''
-  ,'''
-    INSERT INTO professor (nome, descricao, CPF, url_avatar, status)
-    VALUES ('Rosana Ribas', 'MATEMÁTICA', '910.791.830-51','https://cdn.pixabay.com/photo/2014/03/25/16/54/user-297566_1280.png', 'I')
+    INSERT INTO cliente (nome, descricao, CPF, url_avatar, status)
+    VALUES ('Pedro Alvares', 'Engenheiro', '321.654.987-00', 'https://example.com/avatar3.png', 'I')
   '''
 ];
-
-

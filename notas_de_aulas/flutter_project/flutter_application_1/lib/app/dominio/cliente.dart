@@ -7,56 +7,49 @@ class Cliente {
   String? _nome;
   String? _cpf;
   String? _email;
-  String? _descricao; // Atributo descricao adicionado
-  String? _urlAvatar; // Atributo urlAvatar adicionado
+  String? _descricao; 
+  String? _urlAvatar; 
   String _status = 'A';
   IDAOCliente dao;
 
   Cliente({required this.dao});
 
-  // Validação dos dados recebidos no DTOCliente
   validar({required DTOCliente dto}) {
     nome = dto.nome;
     cpf = dto.cpf;
     email = dto.email;
-    descricao = dto.descricao; // Atribuindo a descrição
-    urlAvatar = dto.urlAvatar; // Atribuindo o URL do Avatar
+    descricao = dto.descricao; 
+    urlAvatar = dto.urlAvatar; 
     status = dto.status;
 
-    // Validação de CPF usando o validador
     validador.CPF(cpf).eValido();
   }
 
-  // Método para salvar um novo cliente
   Future<DTOCliente> salvar(DTOCliente dto) async {
     validar(dto: dto);
     return await dao.salvar(dto);
   }
 
-  // Método para alterar os dados de um cliente existente
   Future<DTOCliente> alterar(dynamic id) async {
     this.id = id;
     return await dao.alterar(_id);
   }
 
-  // Método para excluir (alterar status) de um cliente
   Future<bool> excluir(dynamic id) async {
     this.id = id;
     await dao.alterarStatus(_id);
     return true;
   }
 
-  // Método para consultar todos os clientes
   Future<List<DTOCliente>> consultar() async {
     return await dao.consultar();
   }
 
-  // Getters e setters para acessar e modificar os atributos
   String? get nome => _nome;
   String? get cpf => _cpf;
   String? get email => _email;
-  String? get descricao => _descricao; // Getter para descricao
-  String? get urlAvatar => _urlAvatar; // Getter para urlAvatar
+  String? get descricao => _descricao; 
+  String? get urlAvatar => _urlAvatar;
   String? get status => _status;
 
   set id(dynamic id) {

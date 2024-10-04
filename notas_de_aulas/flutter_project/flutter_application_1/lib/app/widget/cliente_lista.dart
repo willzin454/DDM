@@ -79,7 +79,6 @@ class ProfessorLista extends StatelessWidget {
                     leading: circleAvatar(cliente.urlAvatar),
                     title: Text(cliente.nome),
                     onTap: (){
-                      //_back.goToDetails(context, contato);
                     },
                     subtitle: Text(cliente.descricao??''),
                     trailing: SizedBox(
@@ -87,10 +86,8 @@ class ProfessorLista extends StatelessWidget {
                       child: Row(
                         children: [
                           iconEditButton((){
-                            // _back.goToForm(context, contato);
                           }),
                           iconRemoveButton(context, (){
-                            // _back.remove(contato.id, context);
                           })
                         ],
                       ),
