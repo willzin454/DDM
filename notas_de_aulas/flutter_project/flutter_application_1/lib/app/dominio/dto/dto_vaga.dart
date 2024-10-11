@@ -1,11 +1,13 @@
 class DTOVaga {
-  dynamic id;
-  final String numero;
-  final bool ocupada;
+  final int id; 
+  final int numero; 
+  final String tipo; 
+  final bool ocupada; 
 
   DTOVaga({
-    this.id,
+    required this.id,
     required this.numero,
+    required this.tipo,
     this.ocupada = false,
   });
 }

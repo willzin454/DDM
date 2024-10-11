@@ -7,23 +7,27 @@ void main() {
   group("Vaga", () {
     test('Deve criar uma vaga válida e salvar os dados', () async {
       final dto = DTOVaga(
-        numero: "A1",
-        ocupada: false, 
+        id: 0, 
+        numero: 1,
+        tipo: "Normal", 
+        ocupada: false,
       );
 
       final dao = DAOVagaFake();
       final vaga = Vaga(dao: dao);
 
-      vaga.numero = dto.numero;
+      vaga.numero =
+          dto.numero.toString();
       vaga.ocupada = dto.ocupada;
 
-      expect(vaga.numero, equals('A1'));
+      expect(vaga.numero, equals('1')); 
       expect(vaga.ocupada, equals(false));
 
       await vaga.salvar(dto);
 
       final dtoSalvo = dao.dtoSalvo;
-      expect(dtoSalvo.numero, equals('A1'));
+      expect(dtoSalvo.numero,
+          equals(1));
       expect(dtoSalvo.ocupada, equals(false));
     });
   });
@@ -40,7 +44,7 @@ class DAOVagaFake implements IDAOVaga {
 
   @override
   Future<DTOVaga> alterar(DTOVaga dto) async {
-    return dto; 
+    return dto;
   }
 
   @override
@@ -52,8 +56,9 @@ class DAOVagaFake implements IDAOVaga {
   Future<List<DTOVaga>> consultar() async {
     return [];
   }
-  
+
+  @override
   Future<DTOVaga> consultarPorId(int id) async {
-    throw UnimplementedError(); 
+    throw UnimplementedError();
   }
 }

@@ -4,5 +4,6 @@ abstract class IDAOVaga {
   Future<DTOVaga> salvar(DTOVaga dto);
   Future<DTOVaga> alterar(DTOVaga dto);
   Future<bool> excluir(int id);
+  Future<DTOVaga> consultarPorId(int id);
   Future<List<DTOVaga>> consultar();
 }

@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/app/aplicacao/ap_vaga.dart';
-import 'package:flutter_application_1/app/dominio/dto/dto_vaga.dart';
+import 'package:flutter_application_1/app/aplicacao/ap_veiculo.dart';
+import 'package:flutter_application_1/app/dominio/dto/dto_veiculo.dart';
 
-class VagaLista extends StatelessWidget {
-  const VagaLista({super.key});
+class VeiculoLista extends StatelessWidget {
+  const VeiculoLista({super.key});
 
-  CircleAvatar circleAvatar(bool ocupada) {
-    return CircleAvatar(
-      backgroundColor: ocupada ? Colors.red : Colors.green,
-      child: Icon(ocupada ? Icons.directions_car : Icons.local_parking),
-    );
+  CircleAvatar circleAvatar(String? modelo) {
+    return const CircleAvatar(child: Icon(Icons.directions_car));
   }
 
   Widget iconEditButton(VoidCallback onPressed) {
     return IconButton(
-      icon: const Icon(Icons.edit),
-      color: Colors.orange,
-      onPressed: onPressed,
-    );
+        icon: const Icon(Icons.edit),
+        color: Colors.orange,
+        onPressed: onPressed);
   }
 
   Widget iconRemoveButton(BuildContext context, VoidCallback remove) {
@@ -29,7 +25,7 @@ class VagaLista extends StatelessWidget {
           context: context,
           builder: (context) => AlertDialog(
             title: const Text('Excluir'),
-            content: const Text('Confirma a Exclusão?'),
+            content: const Text('Confirma a exclusão?'),
             actions: [
               TextButton(
                 child: const Text('Não'),
@@ -50,44 +46,48 @@ class VagaLista extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var apVaga = APVaga();
-    var lista = apVaga.consultar();
+    var apVeiculo = APVeiculo();
+    var lista = apVeiculo.consultarVeiculos();
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lista de Vagas'),
+        title: const Text('Lista de Veículos'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () {
-            },
-          ),
+              icon: const Icon(Icons.add),
+              onPressed: () {
+                Navigator.pushNamed(context, '/inserirVeiculo');
+              }),
         ],
       ),
-      body: FutureBuilder<List<DTOVaga>>(
+      body: FutureBuilder(
         future: lista,
-        builder: (BuildContext context, AsyncSnapshot<List<DTOVaga>> futuro) {
+        builder:
+            (BuildContext context, AsyncSnapshot<List<DTOVeiculo>> futuro) {
           if (!futuro.hasData || futuro.data == null) {
-            return const Center(child: CircularProgressIndicator());
+            return const CircularProgressIndicator();
           } else {
-            List<DTOVaga> lista = futuro.data!;
+            List<DTOVeiculo> lista = futuro.data!;
             return ListView.builder(
               itemCount: lista.length,
               itemBuilder: (context, i) {
-                var vaga = lista[i];
+                var veiculo = lista[i];
                 return ListTile(
-                  leading: circleAvatar(vaga.ocupada),
-                  title: Text(vaga.numero
-                      .toString()), 
-                  onTap: () {
-                  },
-                  subtitle: Text(vaga.ocupada ? 'Ocupada' : 'Livre'),
+                  leading: circleAvatar(veiculo.modelo),
+                  title: Text(veiculo.placa),
+                  subtitle: Text(veiculo.modelo),
                   trailing: SizedBox(
                     width: 100,
                     child: Row(
                       children: [
                         iconEditButton(() {
                         }),
-                        iconRemoveButton(context, () {
+                        iconRemoveButton(context, () async {
+                          await apVeiculo.excluirVeiculo(veiculo.id);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Veículo removido com sucesso!')),
+                          );
                         }),
                       ],
                     ),

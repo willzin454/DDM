@@ -2,15 +2,15 @@ import 'package:flutter_application_1/app/dominio/dto/dto_vaga.dart';
 import 'package:flutter_application_1/app/dominio/inteface/i_dao_vaga.dart';
 
 class Vaga {
-  dynamic _id;
-  String? _numero; 
+ dynamic _id;
+  String? _numero;
   bool _ocupada;
   IDAOVaga dao;
 
   Vaga({required this.dao, bool ocupada = false}) : _ocupada = ocupada;
 
   void validar({required DTOVaga dto}) {
-    numero = dto.numero;
+    numero = dto.numero.toString();
     _ocupada = dto.ocupada;
   }
 

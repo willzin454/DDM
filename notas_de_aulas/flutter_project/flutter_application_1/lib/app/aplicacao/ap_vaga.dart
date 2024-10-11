@@ -6,22 +6,27 @@ class APVaga {
   late IDAOVaga dao;
 
   APVaga() {
-    dao = DAOVaga();
+    dao =
+        DAOVaga(); 
   }
 
-  Future<DTOVaga> salvar(DTOVaga dto) async {
+  Future<DTOVaga> salvarVaga(DTOVaga dto) async {
     return await dao.salvar(dto);
   }
 
-  Future<DTOVaga> alterar(DTOVaga dto) async {
+  Future<List<DTOVaga>> consultar() async {
+    return await dao.consultar(); 
+  }
+
+  Future<DTOVaga> alterarVaga(DTOVaga dto) async {
     return await dao.alterar(dto);
   }
 
-  Future<bool> excluir(int id) async {
+  Future<bool> excluirVaga(int id) async {
     return await dao.excluir(id);
   }
 
-  Future<List<DTOVaga>> consultar() async {
-    return await dao.consultar();
+  Future<DTOVaga> consultarPorId(int id) async {
+    return await dao.consultarPorId(id);
   }
 }

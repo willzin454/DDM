@@ -1,3 +1,4 @@
+// inserindo_cliente.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/app/aplicacao/ap_cliente.dart';
 import 'package:flutter_application_1/app/dominio/dto/dto_cliente.dart';
@@ -12,6 +13,15 @@ class InserirClienteScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Inserir Cliente'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.list),
+            onPressed: () {
+              Navigator.pushNamed(context,
+                  '/listarClientes'); 
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,7 +56,8 @@ class InserirClienteScreen extends StatelessWidget {
                 emailController.clear();
 
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Cliente inserido com sucesso!')),
+                  const SnackBar(
+                      content: Text('Cliente inserido com sucesso!')),
                 );
               },
               child: const Text('Salvar'),
