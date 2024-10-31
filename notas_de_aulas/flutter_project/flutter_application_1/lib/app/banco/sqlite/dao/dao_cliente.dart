@@ -39,7 +39,7 @@ class DAOCliente implements IDAOCliente {
   }
 
   @override
-  Future<bool> alterarStatus(int id) async {
+  Future<bool> alterarStatus(dynamic id) async {
     _db = await Conexao.iniciar();
     await _db.rawUpdate(sqlAlterarStatus, [id]);
     return true;
@@ -54,17 +54,17 @@ class DAOCliente implements IDAOCliente {
   }
 
   @override
-  Future<DTOCliente> consultarPorId(int id) async {
+  Future<DTOCliente> consultarPorId(dynamic id) async {
     _db = await Conexao.iniciar();
     var resultado = (await _db.rawQuery(sqlConsultarPorId, [id])).first;
-    DTOCliente cliente = DTOCliente(
-        id: resultado['id'],
-        nome: resultado['nome'].toString(),
-        descricao: resultado['descricao'].toString(),
-        cpf: resultado['CPF'].toString(),
-        urlAvatar: resultado['url_avatar'].toString(),
-        status: resultado['status'].toString());
-    return cliente;
+    return DTOCliente(
+      id: resultado['id'] as int,
+      nome: resultado['nome'].toString(),
+      descricao: resultado['descricao']?.toString(),
+      cpf: resultado['CPF'].toString(),
+      urlAvatar: resultado['url_avatar']?.toString(),
+      status: resultado['status'].toString(),
+    );
   }
 
   @override

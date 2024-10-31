@@ -5,27 +5,26 @@ import 'package:flutter_application_1/app/dominio/cliente.dart';
 
 class APCliente {
   late IDAOCliente dao;
-  late Cliente dominio;
 
   APCliente() {
     dao = DAOCliente();
-    dominio = Cliente(dao: dao);
   }
 
   Future<DTOCliente> salvar(DTOCliente dto) async {
-    return await dominio.salvar(dto);
+    final cliente = Cliente(dto, dao: dao);
+    return await cliente.salvar();
   }
 
-  Future<DTOCliente> alterar(dynamic id) async {
-    return await dominio.alterar(id);
+  Future<DTOCliente> alterar(DTOCliente dto) async {
+    final cliente = Cliente(dto, dao: dao);
+    return await cliente.alterar();
   }
 
   Future<bool> excluir(dynamic id) async {
-    await dominio.excluir(id);
-    return true;
+    return await dao.alterarStatus(id);
   }
 
   Future<List<DTOCliente>> consultar() async {
-    return await dominio.consultar();
+    return await dao.consultar();
   }
 }
