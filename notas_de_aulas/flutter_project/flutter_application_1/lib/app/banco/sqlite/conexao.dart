@@ -19,8 +19,6 @@ class Conexao {
   }
 
   static Future<void> fechar() async {
-    if (_db != null) {
-      await _db.close();
+    await _db.close();
     }
-  }
 }
