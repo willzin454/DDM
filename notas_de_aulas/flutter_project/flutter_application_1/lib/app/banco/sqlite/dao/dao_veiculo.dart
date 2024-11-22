@@ -1,36 +1,49 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:flutter_application_1/app/banco/sqlite/conexao.dart';
 import 'package:flutter_application_1/app/dominio/dto/dto_veiculo.dart';
+import 'package:flutter_application_1/app/banco/sqlite/conexao.dart';
+import 'package:sqflite/sqflite.dart';
 
 class DAOVeiculo {
   late Database _db;
 
-  final String sqlInserir = '''
-    INSERT INTO veiculo (placa, modelo, cor)
-    VALUES (?, ?, ?)
+  final sqlInserir = '''
+    INSERT INTO veiculo (placa, modelo, marca, cor, ativo)
+    VALUES (?, ?, ?, ?, ?)
   ''';
 
-  final String sqlAlterar = '''
-    UPDATE veiculo SET modelo=?, cor=? WHERE placa=?
+  final sqlAlterar = '''
+    UPDATE veiculo SET modelo=?, marca=?, cor=?, ativo=?
+    WHERE placa = ?
   ''';
 
-  final String sqlExcluir = '''
-    DELETE FROM veiculo WHERE placa=?
+  final sqlExcluir = '''
+    DELETE FROM veiculo WHERE placa = ?
   ''';
 
-  final String sqlConsultar = '''
-    SELECT * FROM veiculo
+  final sqlConsultar = '''
+    SELECT * FROM veiculo;
   ''';
 
   Future<DTOVeiculo> salvar(DTOVeiculo dto) async {
     _db = await Conexao.iniciar();
-    await _db.rawInsert(sqlInserir, [dto.placa, dto.modelo, dto.cor]);
+    await _db.rawInsert(sqlInserir, [
+      dto.placa,
+      dto.modelo,
+      dto.marca,
+      dto.cor,
+      dto.ativo ? 1 : 0,
+    ]);
     return dto;
   }
 
   Future<DTOVeiculo> alterar(DTOVeiculo dto) async {
     _db = await Conexao.iniciar();
-    await _db.rawUpdate(sqlAlterar, [dto.modelo, dto.cor, dto.placa]);
+    await _db.rawUpdate(sqlAlterar, [
+      dto.modelo,
+      dto.marca,
+      dto.cor,
+      dto.ativo ? 1 : 0,
+      dto.placa,
+    ]);
     return dto;
   }
 
@@ -46,12 +59,16 @@ class DAOVeiculo {
     List<DTOVeiculo> veiculos = List.generate(resultado.length, (i) {
       var linha = resultado[i];
       return DTOVeiculo(
-        id: linha['id'],
-        placa: linha['placa'].toString(),
-        modelo: linha['modelo'].toString(),
-        cor: linha['cor'].toString(),
+        id: linha['id'] as int, // Convertendo explicitamente para int
+        placa:
+            linha['placa'] as String, // Convertendo explicitamente para String
+        modelo: linha['modelo'] as String,
+        marca: linha['marca'] as String,
+        cor: linha['cor'] as String,
+        ativo: (linha['ativo'] as int) == 1, // Convertendo int para bool
       );
     });
     return veiculos;
   }
+
 }

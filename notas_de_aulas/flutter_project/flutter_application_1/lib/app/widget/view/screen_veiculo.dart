@@ -20,33 +20,32 @@ class InserirVeiculoScreen extends StatelessWidget {
           children: [
             TextField(
               controller: placaController,
-              decoration: const InputDecoration(labelText: 'Placa do Veículo'),
+              decoration: const InputDecoration(labelText: 'Placa'),
             ),
             TextField(
               controller: modeloController,
-              decoration: const InputDecoration(labelText: 'Modelo do Veículo'),
+              decoration: const InputDecoration(labelText: 'Modelo'),
             ),
             TextField(
               controller: marcaController,
-              decoration: const InputDecoration(labelText: 'Marca do Veículo'),
+              decoration: const InputDecoration(labelText: 'Marca'),
             ),
             TextField(
               controller: corController,
-              decoration: const InputDecoration(labelText: 'Cor do Veículo'),
+              decoration: const InputDecoration(labelText: 'Cor'),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
-                final veiculoDto = DTOVeiculo(
+                final dto = DTOVeiculo(
                   placa: placaController.text,
                   modelo: modeloController.text,
                   marca: marcaController.text,
                   cor: corController.text,
                 );
                 final apVeiculo = APVeiculo();
-                await apVeiculo.salvarVeiculo(veiculoDto);
+                await apVeiculo.salvarVeiculo(dto);
 
-                // Limpar os campos após a inserção
                 placaController.clear();
                 modeloController.clear();
                 marcaController.clear();

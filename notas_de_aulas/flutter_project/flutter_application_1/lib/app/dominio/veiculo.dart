@@ -5,7 +5,9 @@ class Veiculo {
   dynamic _id;
   String? _placa;
   String? _modelo;
+  String? _marca;
   String? _cor;
+  bool _ativo = true;
   IDAOVeiculo dao;
 
   Veiculo({required this.dao});
@@ -13,6 +15,7 @@ class Veiculo {
   validar({required DTOVeiculo dto}) {
     placa = dto.placa;
     modelo = dto.modelo;
+    marca = dto.marca;
     cor = dto.cor;
 
     if (placa == null || placa!.isEmpty) {
@@ -21,6 +24,10 @@ class Veiculo {
 
     if (modelo == null || modelo!.isEmpty) {
       throw Exception('Modelo não pode ser nulo ou vazio.');
+    }
+
+    if (marca == null || marca!.isEmpty) {
+      throw Exception('Marca não pode ser nula ou vazia.');
     }
 
     if (cor == null || cor!.isEmpty) {
@@ -39,7 +46,9 @@ class Veiculo {
       id: _id,
       placa: placa!,
       modelo: modelo!,
+      marca: marca!,
       cor: cor!,
+      ativo: _ativo,
     ));
   }
 
@@ -54,7 +63,9 @@ class Veiculo {
 
   String? get placa => _placa;
   String? get modelo => _modelo;
+  String? get marca => _marca;
   String? get cor => _cor;
+  bool get ativo => _ativo;
 
   set id(dynamic id) {
     if (id == null) throw Exception('ID não pode ser nulo.');
@@ -76,10 +87,21 @@ class Veiculo {
     _modelo = modelo;
   }
 
+  set marca(String? marca) {
+    if (marca == null || marca.isEmpty) {
+      throw Exception('Marca não pode ser vazia.');
+    }
+    _marca = marca;
+  }
+
   set cor(String? cor) {
     if (cor == null || cor.isEmpty) {
       throw Exception('Cor não pode ser vazia.');
     }
     _cor = cor;
+  }
+
+  set ativo(bool ativo) {
+    _ativo = ativo;
   }
 }

@@ -1,5 +1,0 @@
-bibliotecas
-
-flutter pub add sqflite
-flutter pub add path
-flutter pub add sqflite_common_ffi

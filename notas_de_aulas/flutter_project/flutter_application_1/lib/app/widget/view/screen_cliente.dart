@@ -32,14 +32,14 @@ class InserirClienteScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
-                final clienteDto = DTOCliente(
+                final dto = DTOCliente(
                   nome: nomeController.text,
                   cpf: cpfController.text,
                   email: emailController.text,
                   status: 'A',
                 );
                 final apCliente = APCliente();
-                await apCliente.salvar(clienteDto);
+                await apCliente.salvar(dto);
 
                 nomeController.clear();
                 cpfController.clear();
