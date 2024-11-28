@@ -7,16 +7,18 @@ class Veiculo {
   String? _modelo;
   String? _marca;
   String? _cor;
-  bool _ativo = true;
-  IDAOVeiculo dao;
+  bool? _ativo;
+  final IDAOVeiculo dao;
 
   Veiculo({required this.dao});
 
-  validar({required DTOVeiculo dto}) {
+  void validar({required DTOVeiculo dto}) {
+    id = dto.id;
     placa = dto.placa;
     modelo = dto.modelo;
     marca = dto.marca;
     cor = dto.cor;
+    ativo = dto.ativo;
 
     if (placa == null || placa!.isEmpty) {
       throw Exception('Placa não pode ser nula ou vazia.');
@@ -40,16 +42,9 @@ class Veiculo {
     return await dao.salvar(dto);
   }
 
-  Future<DTOVeiculo> alterar(dynamic id) async {
-    this.id = id;
-    return await dao.alterar(DTOVeiculo(
-      id: _id,
-      placa: placa!,
-      modelo: modelo!,
-      marca: marca!,
-      cor: cor!,
-      ativo: _ativo,
-    ));
+  Future<DTOVeiculo> alterar(DTOVeiculo dto) async {
+    validar(dto: dto);
+    return await dao.alterar(dto);
   }
 
   Future<bool> excluir(dynamic id) async {
@@ -61,47 +56,44 @@ class Veiculo {
     return await dao.consultar();
   }
 
+  dynamic get id => _id;
   String? get placa => _placa;
   String? get modelo => _modelo;
   String? get marca => _marca;
   String? get cor => _cor;
-  bool get ativo => _ativo;
+  bool? get ativo => _ativo;
 
   set id(dynamic id) {
-    if (id == null) throw Exception('ID não pode ser nulo.');
-    if (id < 0) throw Exception('ID não pode ser negativo.');
+    if (id == null) throw Exception('ID não pode ser nulo');
+    if (id < 0) throw Exception('ID não pode ser negativo');
     _id = id;
   }
 
   set placa(String? placa) {
-    if (placa == null || placa.isEmpty) {
-      throw Exception('Placa não pode ser vazia.');
-    }
+    if (placa == null) throw Exception('Placa não pode ser nula.');
+    if (placa.isEmpty) throw Exception('Placa não pode ser vazia.');
     _placa = placa;
   }
 
   set modelo(String? modelo) {
-    if (modelo == null || modelo.isEmpty) {
-      throw Exception('Modelo não pode ser vazio.');
-    }
+    if (modelo == null) throw Exception('Modelo não pode ser nulo.');
+    if (modelo.isEmpty) throw Exception('Modelo não pode ser vazio.');
     _modelo = modelo;
   }
 
   set marca(String? marca) {
-    if (marca == null || marca.isEmpty) {
-      throw Exception('Marca não pode ser vazia.');
-    }
+    if (marca == null) throw Exception('Marca não pode ser nula.');
+    if (marca.isEmpty) throw Exception('Marca não pode ser vazia.');
     _marca = marca;
   }
 
   set cor(String? cor) {
-    if (cor == null || cor.isEmpty) {
-      throw Exception('Cor não pode ser vazia.');
-    }
+    if (cor == null) throw Exception('Cor não pode ser nula.');
+    if (cor.isEmpty) throw Exception('Cor não pode ser vazia.');
     _cor = cor;
   }
 
-  set ativo(bool ativo) {
+  set ativo(bool? ativo) {
     _ativo = ativo;
   }
 }
