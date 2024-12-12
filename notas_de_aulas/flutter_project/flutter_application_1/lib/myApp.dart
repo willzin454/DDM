@@ -8,7 +8,7 @@ import 'package:flutter_application_1/app/ui/form_mensal.dart';
 import 'package:flutter_application_1/app/ui/lista_mensal.dart';
 import 'package:flutter_application_1/app/ui/detalhes_pessoa.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget { 
   const MyApp({Key? key}) : super(key: key);
 
   @override

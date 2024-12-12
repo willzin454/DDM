@@ -8,4 +8,4 @@ class Rotas {
   static final String listaVeiculos = '/listaVeiculos';
   static final String listaMensal = '/listaMensal';
   static final String formMensal = '/formMensal';
-}
+} 
