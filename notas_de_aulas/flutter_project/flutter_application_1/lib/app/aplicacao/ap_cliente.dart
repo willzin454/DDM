@@ -1,30 +1,30 @@
 import 'package:flutter_application_1/app/banco/sqlite/dao/dao_cliente.dart';
-import 'package:flutter_application_1/app/dominio/dto/dto_cliente.dart';
-import 'package:flutter_application_1/app/dominio/inteface/i_dao_cliente.dart';
 import 'package:flutter_application_1/app/dominio/cliente.dart';
+import 'package:flutter_application_1/app/dominio/dto/dto_cliente.dart';
 
 class APCliente {
-  late IDAOCliente dao;
+  late DAOCliente dao;
+  late Cliente dominio;
 
   APCliente() {
     dao = DAOCliente();
+    dominio = Cliente(dao: dao);
   }
 
   Future<DTOCliente> salvar(DTOCliente dto) async {
-    final cliente = Cliente(dto, dao: dao);
-    return await cliente.salvar();
+    return await dominio.salvar(dto);
   }
 
   Future<DTOCliente> alterar(DTOCliente dto) async {
-    final cliente = Cliente(dto, dao: dao);
-    return await cliente.alterar();
+    return await dominio.alterar(dto);
   }
 
   Future<bool> excluir(dynamic id) async {
-    return await dao.alterarStatus(id);
+    await dominio.alterarStatus(id);
+    return true;
   }
 
   Future<List<DTOCliente>> consultar() async {
-    return await dao.consultar();
+    return await dominio.consultar();
   }
 }

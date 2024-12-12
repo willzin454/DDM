@@ -1,19 +1,15 @@
 class DTOCliente {
-  dynamic id; 
+  int? id;
   final String nome;
-  final String? email;
+  final String descricao;
   final String cpf;
-  final String? descricao; 
-  final String? urlAvatar;
-  final String status;
+  final bool status;
 
   DTOCliente({
     this.id,
     required this.nome,
-    this.email,
+    required this.descricao,
     required this.cpf,
-    this.descricao,
-    this.urlAvatar,
-    this.status = 'A',
+    required this.status,
   });
 }

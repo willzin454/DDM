@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/app/widget/inserir_cliente.dart';
-import 'package:flutter_application_1/app/widget/cliente_lista.dart';
-import 'package:flutter_application_1/app/widget/inserir_veiculo.dart';
-import 'package:flutter_application_1/app/widget/veiculo_lista.dart';
-
-void main() {
-  runApp(MyApp());
-}
+import 'package:flutter_application_1/app/rotas.dart';
+import 'package:flutter_application_1/app/ui/form_cliente.dart';
+import 'package:flutter_application_1/app/ui/lista_cliente.dart';
+import 'package:flutter_application_1/app/ui/form_veiculo.dart';
+import 'package:flutter_application_1/app/ui/lista_veiculo.dart';
+import 'package:flutter_application_1/app/ui/form_mensal.dart';
+import 'package:flutter_application_1/app/ui/lista_mensal.dart';
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Estacionamento',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: HomeScreen(),
+      title: 'Gerenciamento de Estacionamento',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: Rotas.home,
       routes: {
-        '/inserirCliente': (context) => InserirClienteScreen(),
-        '/listarClientes': (context) => ClienteLista(),
-        '/inserirVeiculo': (context) => InserirVeiculoScreen(),
-        '/listarVeiculos': (context) => VeiculoLista(),
+        Rotas.home: (context) => HomeScreen(),
+        Rotas.formClientes: (context) => FormCliente(),
+        Rotas.listaClientes: (context) => ListaCliente(),
+        Rotas.formVeiculos: (context) => FormVeiculo(),
+        Rotas.listaVeiculos: (context) => ListaVeiculo(),
+        Rotas.formMensal: (context) => FormMensal(),
+        Rotas.listaMensal: (context) => ListaMensal(),
       },
     );
   }
@@ -30,48 +36,29 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gerenciamento de Estacionamento'),
+        title: Text('Gerenciamento de Estacionamento'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/inserirCliente');
-                  },
-                  child: const Text('Inserir Cliente'),
-                ),
-                const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/listarClientes');
-                  },
-                  child: const Text('Lista Cliente'),
-                ),
-              ],
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Rotas.listaClientes);
+              },
+              child: Text('Lista de Clientes'),
             ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/inserirVeiculo');
-                  },
-                  child: const Text('Inserir Veículo'),
-                ),
-                const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/listarVeiculos');
-                  },
-                  child: const Text('Lista Veículo'),
-                ),
-              ],
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Rotas.listaVeiculos);
+              },
+              child: Text('Lista de Veículos'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Rotas.listaMensal);
+              },
+              child: Text('Lista de Mensalistas'),
             ),
           ],
         ),

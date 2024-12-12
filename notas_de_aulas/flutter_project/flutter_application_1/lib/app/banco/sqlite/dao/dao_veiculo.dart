@@ -1,8 +1,9 @@
 import 'package:flutter_application_1/app/dominio/dto/dto_veiculo.dart';
 import 'package:flutter_application_1/app/banco/sqlite/conexao.dart';
+import 'package:flutter_application_1/app/dominio/inteface/i_dao_veiculo.dart';
 import 'package:sqflite/sqflite.dart';
 
-class DAOVeiculo {
+class DAOVeiculo implements IDAOVeiculo {
   late Database _db;
 
   final sqlInserir = '''
@@ -12,29 +13,36 @@ class DAOVeiculo {
 
   final sqlAlterar = '''
     UPDATE veiculo SET modelo=?, marca=?, cor=?, ativo=?
-    WHERE placa = ?
+    WHERE id = ?
   ''';
 
   final sqlExcluir = '''
-    DELETE FROM veiculo WHERE placa = ?
+    DELETE FROM veiculo WHERE id = ?
+  ''';
+
+  final sqlConsultarPorId = '''
+    SELECT * FROM veiculo WHERE id = ?;
   ''';
 
   final sqlConsultar = '''
     SELECT * FROM veiculo;
   ''';
 
+  @override
   Future<DTOVeiculo> salvar(DTOVeiculo dto) async {
     _db = await Conexao.iniciar();
-    await _db.rawInsert(sqlInserir, [
+    int id = await _db.rawInsert(sqlInserir, [
       dto.placa,
       dto.modelo,
       dto.marca,
       dto.cor,
-      dto.ativo ? 1 : 0,
+      dto.ativo ? 1 : 0
     ]);
+    dto.id = id;
     return dto;
   }
 
+  @override
   Future<DTOVeiculo> alterar(DTOVeiculo dto) async {
     _db = await Conexao.iniciar();
     await _db.rawUpdate(sqlAlterar, [
@@ -42,33 +50,48 @@ class DAOVeiculo {
       dto.marca,
       dto.cor,
       dto.ativo ? 1 : 0,
-      dto.placa,
+      dto.id
     ]);
     return dto;
   }
 
-  Future<bool> excluir(String placa) async {
+  @override
+  Future<DTOVeiculo> consultarPorId(int id) async {
     _db = await Conexao.iniciar();
-    int result = await _db.rawDelete(sqlExcluir, [placa]);
-    return result > 0;
+    var resultado = (await _db.rawQuery(sqlConsultarPorId, [id])).first;
+    DTOVeiculo veiculo = DTOVeiculo(
+      id: resultado['id'],
+      placa: resultado['placa'],
+      modelo: resultado['modelo'],
+      marca: resultado['marca'],
+      cor: resultado['cor'],
+      ativo: resultado['ativo'] == 1,
+    );
+    return veiculo;
   }
 
+  @override
+  Future<bool> excluir(dynamic id) async {
+    _db = await Conexao.iniciar();
+    int count = await _db.rawDelete(sqlExcluir, [id]);
+    return count > 0;
+  }
+
+  @override
   Future<List<DTOVeiculo>> consultar() async {
     _db = await Conexao.iniciar();
     var resultado = await _db.rawQuery(sqlConsultar);
     List<DTOVeiculo> veiculos = List.generate(resultado.length, (i) {
       var linha = resultado[i];
       return DTOVeiculo(
-        id: linha['id'] as int, // Convertendo explicitamente para int
-        placa:
-            linha['placa'] as String, // Convertendo explicitamente para String
-        modelo: linha['modelo'] as String,
-        marca: linha['marca'] as String,
-        cor: linha['cor'] as String,
-        ativo: (linha['ativo'] as int) == 1, // Convertendo int para bool
+        id: linha['id'],
+        placa: linha['placa'],
+        modelo: linha['modelo'],
+        marca: linha['marca'],
+        cor: linha['cor'],
+        ativo: linha['ativo'] == 1,
       );
     });
     return veiculos;
   }
-
 }
