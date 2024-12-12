@@ -3,6 +3,7 @@ class DTOCliente {
   final String nome;
   final String descricao;
   final String cpf;
+  final String email;
   final bool status;
 
   DTOCliente({
@@ -10,6 +11,11 @@ class DTOCliente {
     required this.nome,
     required this.descricao,
     required this.cpf,
+    required this.email,
     required this.status,
   });
+
+  set setId(int id) {
+    this.id = id;
+  }
 }
