@@ -20,8 +20,7 @@ class APCliente {
   }
 
   Future<bool> excluir(dynamic id) async {
-    await dominio.alterarStatus(id);
-    return true;
+    return await dominio.excluir(id);
   }
 
   Future<List<DTOCliente>> consultar() async {
